@@ -121,6 +121,17 @@
             }
         }
 
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
         /* Элементы с анимациями */
         .animate-fade-in-up {
             animation: fadeInUp 0.8s ease-out;
@@ -144,6 +155,10 @@
 
         .animate-bounce-in {
             animation: bounceIn 0.6s ease-out;
+        }
+
+        .animate-slide-in {
+            animation: slideIn 0.8s ease-out;
         }
 
         /* Шапка */
@@ -544,110 +559,196 @@
             animation: shimmer 3s infinite linear;
         }
 
-        /* Результаты */
+        /* Секция результатов */
         .results {
             padding: 80px 0;
-            background-color: var(--yandex-white);
+            background: linear-gradient(135deg, var(--yandex-white) 0%, var(--yandex-light-gray) 100%);
         }
 
-        .results-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 30px;
+        .industry-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
         }
 
-        @media (min-width: 768px) {
-            .results-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-
-        .result-card {
-            text-align: center;
-            padding: 40px 25px;
-            border-radius: 16px;
+        .industry-tab {
+            padding: 12px 24px;
             background: var(--yandex-white);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            border: 2px solid #e0e0e0;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            font-weight: 600;
+            color: var(--yandex-gray);
+        }
+
+        .industry-tab.active {
+            background: var(--yandex-red);
+            color: var(--yandex-white);
+            border-color: var(--yandex-red);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(252, 63, 29, 0.3);
+        }
+
+        .industry-tab:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .results-content {
+            background: var(--yandex-white);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+        }
+
+        .results-header {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 40px;
+            margin-bottom: 40px;
+            align-items: start;
+        }
+
+        .finance-features {
+            background: var(--yandex-light-gray);
+            padding: 25px;
+            border-radius: 12px;
+            animation: fadeInLeft 0.8s ease-out;
+        }
+
+        .finance-features h3 {
+            color: var(--yandex-red);
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+
+        .features-list {
+            list-style: none;
+        }
+
+        .features-list li {
+            padding: 8px 0;
+            position: relative;
+            padding-left: 25px;
+            transition: transform 0.3s ease;
+        }
+
+        .features-list li:hover {
+            transform: translateX(5px);
+        }
+
+        .features-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--yandex-red);
+            font-weight: bold;
+        }
+
+        .comparison-section {
+            background: var(--yandex-light-gray);
+            padding: 25px;
+            border-radius: 12px;
+            animation: fadeInRight 0.8s ease-out;
+        }
+
+        .comparison-section h3 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: var(--yandex-dark-gray);
+            font-size: 18px;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            text-align: center;
+        }
+
+        .comparison-item {
+            background: var(--yandex-white);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
-            opacity: 0;
-            transform: translateY(30px);
         }
 
-        .result-card.visible {
-            opacity: 1;
-            transform: translateY(0);
+        .comparison-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
         }
 
-        .result-card::before {
+        .comparison-item.before {
+            border-top: 4px solid #ff6b6b;
+        }
+
+        .comparison-item.after {
+            border-top: 4px solid var(--yandex-red);
+        }
+
+        .comparison-value {
+            font-size: 24px;
+            font-weight: 700;
+            margin: 10px 0;
+            transition: all 0.3s ease;
+        }
+
+        .comparison-item.before .comparison-value {
+            color: #ff6b6b;
+        }
+
+        .comparison-item.after .comparison-value {
+            color: var(--yandex-red);
+        }
+
+        .improvement-badge {
+            background: linear-gradient(135deg, var(--yandex-red), var(--yandex-dark-red));
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 14px;
+            display: inline-block;
+            margin-top: 10px;
+            animation: pulse 2s infinite;
+        }
+
+        .case-study {
+            background: var(--yandex-light-gray);
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 30px;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .case-study::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
-            right: 0;
-            height: 0;
-            background: linear-gradient(135deg, var(--yandex-red) 0%, var(--yandex-dark-red) 100%);
-            transition: height 0.4s ease;
-            z-index: 1;
+            width: 4px;
+            height: 100%;
+            background: var(--yandex-red);
         }
 
-        .result-card:hover {
-            transform: translateY(-8px) scale(1.03);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
-        }
-
-        .result-card:hover::before {
-            height: 5px;
-        }
-
-        .result-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, var(--yandex-red) 0%, var(--yandex-dark-red) 100%);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 25px;
-            transition: all 0.4s ease;
-            position: relative;
-            z-index: 2;
-        }
-
-        .result-card:hover .result-icon {
-            transform: rotate(15deg) scale(1.1);
-            animation: pulse 2s infinite;
-        }
-
-        .result-icon i {
-            color: var(--yandex-white);
-            font-size: 32px;
-            transition: transform 0.3s ease;
-        }
-
-        .result-card:hover .result-icon i {
-            transform: scale(1.1);
-        }
-
-        .result-card h3 {
-            font-size: 20px;
-            margin-bottom: 15px;
-            color: var(--yandex-black);
-            transition: color 0.3s ease;
-            position: relative;
-            z-index: 2;
-        }
-
-        .result-card:hover h3 {
+        .case-study h3 {
             color: var(--yandex-red);
+            margin-bottom: 15px;
+            font-size: 20px;
         }
 
-        .result-card p {
-            color: var(--yandex-gray);
-            transition: color 0.3s ease;
-            position: relative;
-            z-index: 2;
+        .case-study p {
+            color: var(--yandex-dark-gray);
+            line-height: 1.8;
         }
 
         /* Футер */
@@ -764,6 +865,29 @@
             .btn {
                 padding: 14px 28px;
             }
+            
+            .results-header {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+            
+            .comparison-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .industry-tabs {
+                gap: 10px;
+            }
+            
+            .industry-tab {
+                padding: 10px 18px;
+                font-size: 14px;
+            }
+            
+            .results-content {
+                padding: 25px 20px;
+            }
         }
     </style>
 </head>
@@ -865,30 +989,49 @@
     </section>
 
     <!-- Результаты -->
-    <section class="results">
+    <section class="results" id="results">
         <div class="container">
             <h2 class="section-title">Какие результаты вы можете получить</h2>
-            <div class="results-grid">
-                <div class="result-card">
-                    <div class="result-icon">
-                        <i class="fas fa-search"></i>
+            
+            <div class="industry-tabs">
+                <div class="industry-tab active" data-industry="construction">Строительство</div>
+                <div class="industry-tab" data-industry="realestate">Недвижимость</div>
+                <div class="industry-tab" data-industry="repair">Ремонт квартир</div>
+            </div>
+
+            <div class="results-content animate-fade-in-up">
+                <div class="results-header">
+                    <div class="finance-features">
+                        <h3>Финансы</h3>
+                        <ul class="features-list">
+                            <li>Удобный формат</li>
+                            <li>Анализ базы</li>
+                            <li>Автоматизация отчетности</li>
+                            <li>Контроль расходов</li>
+                        </ul>
                     </div>
-                    <h3>Увеличение видимости</h3>
-                    <p>Повышение узнаваемости бренда и охвата целевой аудитории.</p>
+                    
+                    <div class="comparison-section">
+                        <h3>1.2 или P Ваше</h3>
+                        <div class="comparison-grid">
+                            <div class="comparison-item before">
+                                <div>Бюджет</div>
+                                <div class="comparison-value">5 150</div>
+                                <div>Лиды: 700 ₽</div>
+                            </div>
+                            <div class="comparison-item after">
+                                <div>Бюджет</div>
+                                <div class="comparison-value">72%</div>
+                                <div>Лиды: 400 ₽</div>
+                                <div class="improvement-badge">Эффективность +72%</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="result-card">
-                    <div class="result-icon">
-                        <i class="fas fa-shopping-cart"></i>
-                    </div>
-                    <h3>Рост продаж</h3>
-                    <p>Увеличение конверсии и количества целевых действий на сайте.</p>
-                </div>
-                <div class="result-card">
-                    <div class="result-icon">
-                        <i class="fas fa-wallet"></i>
-                    </div>
-                    <h3>Снижение стоимости заказа</h3>
-                    <p>Оптимизация рекламных кампаний для снижения стоимости привлечения клиента.</p>
+
+                <div class="case-study">
+                    <h3>Кейс: Юридическая компания</h3>
+                    <p>Юридическая компания использовала SEO и публикации на специализированных сайтах для привлечения клиентов. Стоимость лида достигала 2 500 рублей, что делало расходы на привлечение клиентов чрезмерными. С A+UP они смогли сократить стоимость до 400 рублей за лид, получая качественные заявки. Это позволило компании работать с большим количеством клиентов, улучшая экономическую эффективность своих рекламных вложений.</p>
                 </div>
             </div>
         </div>
@@ -1005,11 +1148,56 @@
             });
         }
 
+        // Табы для переключения между отраслями
+        function initIndustryTabs() {
+            const tabs = document.querySelectorAll('.industry-tab');
+            const resultsContent = document.querySelector('.results-content');
+            
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    // Убираем активный класс у всех табов
+                    tabs.forEach(t => t.classList.remove('active'));
+                    // Добавляем активный класс текущему табу
+                    this.classList.add('active');
+                    
+                    // Анимация переключения контента
+                    resultsContent.style.opacity = '0';
+                    resultsContent.style.transform = 'translateY(20px)';
+                    
+                    setTimeout(() => {
+                        // Здесь можно загрузить разный контент для разных отраслей
+                        updateContent(this.dataset.industry);
+                        
+                        resultsContent.style.opacity = '1';
+                        resultsContent.style.transform = 'translateY(0)';
+                    }, 300);
+                });
+            });
+            
+            function updateContent(industry) {
+                // В реальном проекте здесь будет загрузка разного контента
+                console.log('Загружаем контент для:', industry);
+                
+                // Пример изменения заголовка кейса в зависимости от отрасли
+                const caseTitle = document.querySelector('.case-study h3');
+                const industries = {
+                    construction: 'Кейс: Строительная компания',
+                    realestate: 'Кейс: Агентство недвижимости', 
+                    repair: 'Кейс: Компания по ремонту квартир'
+                };
+                
+                if (industries[industry]) {
+                    caseTitle.textContent = industries[industry];
+                }
+            }
+        }
+
         // Инициализация при загрузке
         document.addEventListener('DOMContentLoaded', function() {
             // Запуск анимаций
             animateOnScroll();
             initCalculator();
+            initIndustryTabs();
             
             // Обработчики событий
             window.addEventListener('scroll', () => {
@@ -1019,7 +1207,11 @@
             
             // Инициализация начального состояния
             handleHeaderScroll();
+            
+            // Показываем калькулятор при загрузке
+            const calculatorContainer = document.querySelector('.calculator-container');
+            calculatorContainer.classList.add('visible');
         });
     </script>
 </body>
-                            </html>
+    </html>
