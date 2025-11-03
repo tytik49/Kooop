@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <title>Ключи Караганда - Изготовление ключей</title>
+    <link href="https://kvm.keyshl.kesug.com"/>
+    <link type="application/atom+xml" rel="self" href="https://kvm.keyshl.kesug.com/atom.xml"/>
+    <updated>2024-01-15T12:00:00+06:00</updated>
+    <id>https://kvm.keyshl.kesug.com</id>
+    <author>
+        <name>Ключи Караганда</name>
+        <email>info@kvm.keyshl.kesug.com</email>
+    </author>
+    <subtitle>Профессиональное изготовление ключей от домофонов и воротных пультов</subtitle>
+
+    <entry>
+        <title>Изготовление ключей от домофонов в Караганде</title>
+        <link href="https://kvm.keyshl.kesug.com/#services"/>
+        <id>https://kvm.keyshl.kesug.com/#domofon-keys</id>
+        <updated>2024-01-15T10:00:00+06:00</updated>
+        <summary>Профессиональное изготовление ключей от домофонов всех моделей: Киев, Метаком, Цифрал, Визит, Факториал</summary>
+        <category term="ключи"/>
+        <category term="домофоны"/>
+    </entry>
+
+    <entry>
+        <title>Воротные пульты и брелоки в Караганде</title>
+        <link href="https://kvm.keyshl.kesug.com/#services"/>
+        <id>https://kvm.keyshl.kesug.com/#gate-remotes</id>
+        <updated>2024-01-15T09:30:00+06:00</updated>
+        <summary>Изготовление и программирование воротных пультов Nice, CAME, FAAC, Marantec</summary>
+        <category term="пульты"/>
+        <category term="ворота"/>
+    </entry>
+</feed>
