@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+    <title>Ключи Караганда - Изготовление ключей от домофонов и ворот</title>
+    <link>https://kvm.keyshl.kesug.com</link>
+    <atom:link href="https://kvm.keyshl.kesug.com/rss.xml" rel="self" type="application/rss+xml" />
+    <description>Профессиональное изготовление ключей от домофонов и воротных пультов в Караганде. Ключи Киев, Метаком, Цифрал, воротные пульты Nice, CAME</description>
+    <language>ru</language>
+    <copyright>Copyright 2024 Ключи Караганда</copyright>
+    <lastBuildDate>Mon, 15 Jan 2024 12:00:00 +0600</lastBuildDate>
+    <pubDate>Mon, 15 Jan 2024 12:00:00 +0600</pubDate>
+    <ttl>60</ttl>
+    <image>
+        <url>https://kvm.keyshl.kesug.com/favicon.ico</url>
+        <title>Ключи Караганда</title>
+        <link>https://kvm.keyshl.kesug.com</link>
+    </image>
+
+    <item>
+        <title>Изготовление ключей от домофонов в Караганде</title>
+        <link>https://kvm.keyshl.kesug.com/#services</link>
+        <description>Профессиональное изготовление ключей от домофонов всех моделей: Киев, Метаком, Цифрал, Визит, Факториал. Цена от 1000 тг</description>
+        <pubDate>Mon, 15 Jan 2024 10:00:00 +0600</pubDate>
+        <guid>https://kvm.keyshl.kesug.com/#domofon-keys</guid>
+        <category>ключи</category>
+        <category>домофоны</category>
+    </item>
+
+    <item>
+        <title>Воротные пульты и брелоки в Караганде</title>
+        <link>https://kvm.keyshl.kesug.com/#services</link>
+        <description>Изготовление и программирование воротных пультов Nice, CAME, FAAC, Marantec. От 4000 тг, при заказе нескольких - 3500 тг за штуку</description>
+        <pubDate>Mon, 15 Jan 2024 09:30:00 +0600</pubDate>
+        <guid>https://kvm.keyshl.kesug.com/#gate-remotes</guid>
+        <category>пульты</category>
+        <category>ворота</category>
+    </item>
+
+    <item>
+        <title>Ключи для домофонов Киев в Караганде</title>
+        <link>https://kvm.keyshl.kesug.com/#services</link>
+        <description>Специализируемся на изготовлении ключей для домофонов Киев. Быстрое изготовление, гарантия качества</description>
+        <pubDate>Sun, 14 Jan 2024 14:20:00 +0600</pubDate>
+        <guid>https://kvm.keyshl.kesug.com/#kiev-keys</guid>
+        <category>Киев</category>
+        <category>домофоны</category>
+    </item>
+
+    <item>
+        <title>Пульты управления для автоматических ворот</title>
+        <link>https://kvm.keyshl.kesug.com/#services</link>
+        <description>Профессиональное программирование пультов для автоматических ворот, шлагбаумов, роллетных систем</description>
+        <pubDate>Sun, 14 Jan 2024 11:45:00 +0600</pubDate>
+        <guid>https://kvm.keyshl.kesug.com/#automatic-gates</guid>
+        <category>ворота</category>
+        <category>автоматика</category>
+    </item>
+
+    <item>
+        <title>Ключи от домофонов Метаком и Цифрал</title>
+        <link>https://kvm.keyshl.kesug.com/#services</link>
+        <description>Изготовление ключей для современных домофонных систем Метаком и Цифрал. Работаем с любыми моделями</description>
+        <pubDate>Sat, 13 Jan 2024 16:15:00 +0600</pubDate>
+        <guid>https://kvm.keyshl.kesug.com/#metakom-keys</guid>
+        <category>Метаком</category>
+        <category>Цифрал</category>
+    </item>
+</channel>
+</rss>
