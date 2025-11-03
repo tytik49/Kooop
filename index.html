@@ -3,43 +3,161 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI-UP - Маркетинг под ключ</title>
+    <title>Ключи на заказ - Изготовление ключей от домофонов и ворот</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Яндекс Директ цветовая палитра */
-        :root {
-            --yandex-red: #FC3F1D;
-            --yandex-dark-red: #d63317;
-            --yandex-black: #1A1A1A;
-            --yandex-dark-gray: #333;
-            --yandex-gray: #666;
-            --yandex-light-gray: #F0F0F0;
-            --yandex-white: #FFFFFF;
-        }
-
-        /* Базовые стили */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'YS Text', 'Helvetica Neue', Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: #6a0dad;
+            --primary-dark: #4b0082;
+            --primary-light: #8a2be2;
+            --secondary: #da70d6;
+            --accent: #e6e6fa;
+            --light: #f8f8ff;
+            --dark: #2d004d;
+            --text: #333;
         }
 
         body {
-            background-color: var(--yandex-white);
-            color: var(--yandex-black);
-            line-height: 1.6;
+            background-color: var(--light);
+            color: var(--text);
             overflow-x: hidden;
         }
 
         .container {
-            width: 100%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 15px;
+            padding: 0 20px;
         }
 
-        /* Анимации */
+        /* Top Bar с номером телефона */
+        .top-bar {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 10px 0;
+            font-size: 0.9rem;
+        }
+
+        .top-bar-container {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        .phone-number {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            color: white;
+            text-decoration: none;
+            padding: 8px 15px;
+            border-radius: 30px;
+            transition: all 0.3s;
+            background-color: rgba(255, 255, 255, 0.15);
+        }
+
+        .phone-number:hover {
+            background-color: rgba(255, 255, 255, 0.25);
+            transform: scale(1.05);
+        }
+
+        .phone-number i {
+            color: var(--accent);
+        }
+
+        /* Header Styles */
+        header {
+            background-color: white;
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        .logo-icon {
+            font-size: 2rem;
+            color: var(--primary);
+            animation: spin 10s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(106, 13, 173, 0.9), rgba(75, 0, 130, 0.9)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%236a0dad"/><path d="M30,30 L70,30 L70,70 L30,70 Z" fill="none" stroke="%23da70d6" stroke-width="2"/><circle cx="50" cy="50" r="20" fill="none" stroke="%23da70d6" stroke-width="2"/></svg>');
+            background-size: cover;
+            color: white;
+            padding: 120px 0 80px;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            animation: fadeInUp 1s ease-out;
+        }
+
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -51,1206 +169,452 @@
             }
         }
 
-        @keyframes fadeInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        @keyframes fadeInRight {
-            from {
-                opacity: 0;
-                transform: translateX(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        @keyframes pulse {
-            0% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.05);
-            }
-            100% {
-                transform: scale(1);
-            }
-        }
-
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-10px);
-            }
-        }
-
-        @keyframes shimmer {
-            0% {
-                background-position: -200% 0;
-            }
-            100% {
-                background-position: 200% 0;
-            }
-        }
-
-        @keyframes bounceIn {
-            0% {
-                opacity: 0;
-                transform: scale(0.3);
-            }
-            50% {
-                opacity: 1;
-                transform: scale(1.05);
-            }
-            70% {
-                transform: scale(0.9);
-            }
-            100% {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateX(-100px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        /* Элементы с анимациями */
-        .animate-fade-in-up {
-            animation: fadeInUp 0.8s ease-out;
-        }
-
-        .animate-fade-in-left {
-            animation: fadeInLeft 0.8s ease-out;
-        }
-
-        .animate-fade-in-right {
-            animation: fadeInRight 0.8s ease-out;
-        }
-
-        .animate-pulse {
-            animation: pulse 2s infinite;
-        }
-
-        .animate-float {
-            animation: float 3s ease-in-out infinite;
-        }
-
-        .animate-bounce-in {
-            animation: bounceIn 0.6s ease-out;
-        }
-
-        .animate-slide-in {
-            animation: slideIn 0.8s ease-out;
-        }
-
-        /* Шапка */
-        header {
-            background-color: var(--yandex-white);
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            transform: translateY(0);
-            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-
-        header.scrolled {
-            transform: translateY(-10px);
-            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
-        }
-
-        .header-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 0;
-            transition: padding 0.3s ease;
-        }
-
-        header.scrolled .header-container {
-            padding: 10px 0;
-        }
-
-        .logo {
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--yandex-red);
-            text-decoration: none;
-            position: relative;
-            transition: all 0.3s ease;
-        }
-
-        .logo::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--yandex-red);
-            transition: width 0.3s ease;
-        }
-
-        .logo:hover::after {
-            width: 100%;
-        }
-
-        .phone-number {
-            font-weight: 600;
-            color: var(--yandex-black);
-            text-decoration: none;
-            font-size: 18px;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .phone-number:hover {
-            color: var(--yandex-red);
-            transform: translateX(5px);
-        }
-
-        /* Герой секция */
-        .hero {
-            padding: 140px 0 80px;
-            background: linear-gradient(135deg, var(--yandex-white) 0%, var(--yandex-light-gray) 100%);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -20%;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(252, 63, 29, 0.1) 0%, transparent 70%);
-            border-radius: 50%;
-            animation: float 6s ease-in-out infinite;
-        }
-
-        .hero-content {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 2;
-        }
-
         .hero h1 {
-            font-size: 32px;
+            font-size: 3rem;
             margin-bottom: 20px;
-            color: var(--yandex-black);
-            animation: fadeInUp 0.8s ease-out 0.2s both;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
 
         .hero p {
-            font-size: 18px;
-            color: var(--yandex-gray);
+            font-size: 1.2rem;
             margin-bottom: 30px;
-            animation: fadeInUp 0.8s ease-out 0.4s both;
+            line-height: 1.6;
         }
 
-        .btn {
+        .cta-button {
             display: inline-block;
-            background: linear-gradient(135deg, var(--yandex-red) 0%, var(--yandex-dark-red) 100%);
-            color: var(--yandex-white);
-            padding: 16px 32px;
-            border-radius: 12px;
+            background: linear-gradient(135deg, var(--secondary), var(--primary-light));
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
             text-decoration: none;
-            font-weight: 600;
-            font-size: 16px;
-            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            border: none;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-            animation: fadeInUp 0.8s ease-out 0.6s both;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(218, 112, 214, 0.4);
         }
 
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-            transition: left 0.7s ease;
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(218, 112, 214, 0.6);
         }
 
-        .btn:hover {
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 10px 25px rgba(252, 63, 29, 0.3);
-        }
-
-        .btn:hover::before {
-            left: 100%;
-        }
-
-        .btn:active {
-            transform: translateY(-1px) scale(1.01);
-        }
-
-        /* Секция преимуществ */
-        .features {
-            padding: 80px 0;
-            background-color: var(--yandex-white);
+        /* Services Section */
+        .services {
+            padding: 100px 0;
+            background-color: white;
         }
 
         .section-title {
             text-align: center;
-            font-size: 28px;
-            margin-bottom: 50px;
-            color: var(--yandex-black);
+            margin-bottom: 60px;
+            font-size: 2.5rem;
+            color: var(--primary);
             position: relative;
-            animation: fadeInUp 0.8s ease-out;
         }
 
         .section-title::after {
             content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 3px;
-            background: var(--yandex-red);
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            margin: 15px auto;
             border-radius: 2px;
         }
 
-        .features-grid {
+        .services-grid {
             display: grid;
-            grid-template-columns: 1fr;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
-        }
-
-        @media (min-width: 768px) {
-            .features-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        .feature-card {
-            background: var(--yandex-white);
-            border-radius: 16px;
-            padding: 30px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            position: relative;
-            overflow: hidden;
-            opacity: 0;
-            transform: translateY(30px);
-        }
-
-        .feature-card.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .feature-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 4px;
-            height: 0;
-            background: var(--yandex-red);
-            transition: height 0.4s ease;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
-        }
-
-        .feature-card:hover::before {
-            height: 100%;
-        }
-
-        .feature-icon {
-            width: 70px;
-            height: 70px;
-            background: linear-gradient(135deg, var(--yandex-red) 0%, var(--yandex-dark-red) 100%);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 20px;
-            transition: all 0.4s ease;
-            position: relative;
-        }
-
-        .feature-card:hover .feature-icon {
-            transform: rotate(10deg) scale(1.1);
-        }
-
-        .feature-icon i {
-            color: var(--yandex-white);
-            font-size: 28px;
-            transition: transform 0.3s ease;
-        }
-
-        .feature-card:hover .feature-icon i {
-            transform: scale(1.1);
-        }
-
-        .feature-card h3 {
-            font-size: 20px;
-            margin-bottom: 15px;
-            color: var(--yandex-black);
-            transition: color 0.3s ease;
-        }
-
-        .feature-card:hover h3 {
-            color: var(--yandex-red);
-        }
-
-        .feature-card p {
-            color: var(--yandex-gray);
-            transition: color 0.3s ease;
-        }
-
-        /* Калькулятор */
-        .calculator {
-            padding: 80px 0;
-            background: linear-gradient(135deg, var(--yandex-light-gray) 0%, #e8e8e8 100%);
-            position: relative;
-        }
-
-        .calculator::before {
-            content: '';
-            position: absolute;
-            bottom: -50%;
-            left: -10%;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(252, 63, 29, 0.08) 0%, transparent 70%);
-            border-radius: 50%;
-            animation: float 8s ease-in-out infinite reverse;
-        }
-
-        .calculator-container {
             max-width: 800px;
             margin: 0 auto;
-            background: var(--yandex-white);
-            border-radius: 20px;
-            padding: 40px;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(106, 13, 173, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
             position: relative;
-            z-index: 2;
-            transform: translateY(30px);
-            opacity: 0;
-            transition: all 0.8s ease;
+            border: 1px solid var(--accent);
         }
 
-        .calculator-container.visible {
-            transform: translateY(0);
-            opacity: 1;
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(106, 13, 173, 0.2);
         }
 
-        .calculator-title {
-            font-size: 24px;
-            margin-bottom: 30px;
+        .service-icon {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white;
+            font-size: 3rem;
+            padding: 30px;
             text-align: center;
-            color: var(--yandex-black);
         }
 
-        .calculator-form {
-            display: flex;
-            flex-direction: column;
-            gap: 25px;
+        .service-content {
+            padding: 30px;
         }
 
-        .form-group {
-            display: flex;
-            flex-direction: column;
+        .service-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary);
         }
 
-        .form-group label {
-            margin-bottom: 10px;
-            font-weight: 600;
-            color: var(--yandex-dark-gray);
-            transition: color 0.3s ease;
+        .service-content p {
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.6;
         }
 
-        .form-group:focus-within label {
-            color: var(--yandex-red);
-        }
-
-        .form-group select,
-        .form-group input {
-            padding: 14px 18px;
-            border: 2px solid #e0e0e0;
-            border-radius: 10px;
-            font-size: 16px;
-            background-color: var(--yandex-white);
-            transition: all 0.3s ease;
-        }
-
-        .form-group select:focus,
-        .form-group input:focus {
-            border-color: var(--yandex-red);
-            box-shadow: 0 0 0 3px rgba(252, 63, 29, 0.1);
-            outline: none;
-            transform: translateY(-2px);
-        }
-
-        #budget {
-            transition: all 0.3s ease;
-        }
-
-        #budget:focus {
-            transform: scale(1.02);
-        }
-
-        #budget-value {
-            font-weight: 600;
-            color: var(--yandex-red);
-            margin-top: 8px;
-            transition: all 0.3s ease;
-        }
-
-        .calculator-result {
-            margin-top: 30px;
-            padding: 25px;
-            background: linear-gradient(135deg, var(--yandex-light-gray) 0%, #e8e8e8 100%);
-            border-radius: 12px;
-            text-align: center;
-            transform: scale(0.9);
-            opacity: 0;
-            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-
-        .calculator-result.show {
-            transform: scale(1);
-            opacity: 1;
-            animation: bounceIn 0.6s ease-out;
-        }
-
-        .result-value {
-            font-size: 32px;
-            font-weight: 700;
-            color: var(--yandex-red);
-            margin: 15px 0;
-            background: linear-gradient(90deg, var(--yandex-red), var(--yandex-dark-red));
+        .price {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary);
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-size: 200% 100%;
-            animation: shimmer 3s infinite linear;
         }
 
-        /* Секция результатов */
-        .results {
-            padding: 80px 0;
-            background: linear-gradient(135deg, var(--yandex-white) 0%, var(--yandex-light-gray) 100%);
-        }
-
-        .industry-tabs {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 40px;
-            flex-wrap: wrap;
-        }
-
-        .industry-tab {
-            padding: 12px 24px;
-            background: var(--yandex-white);
-            border: 2px solid #e0e0e0;
-            border-radius: 25px;
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            font-weight: 600;
-            color: var(--yandex-gray);
-            -webkit-tap-highlight-color: transparent;
-            user-select: none;
-            min-height: 48px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .industry-tab.active {
-            background: var(--yandex-red);
-            color: var(--yandex-white);
-            border-color: var(--yandex-red);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(252, 63, 29, 0.3);
-        }
-
-        .industry-tab:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Улучшения для мобильных касаний */
-        @media (max-width: 768px) {
-            .industry-tab {
-                padding: 15px 20px;
-                font-size: 16px;
-                min-width: 140px;
-                min-height: 52px;
-                touch-action: manipulation;
-            }
-            
-            .industry-tabs {
-                gap: 10px;
-                justify-content: center;
-            }
-        }
-
-        .results-content {
-            background: var(--yandex-white);
-            border-radius: 20px;
-            padding: 40px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: all 0.4s ease;
-        }
-
-        .results-header {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 40px;
-            margin-bottom: 40px;
-            align-items: start;
-        }
-
-        .finance-features {
-            background: var(--yandex-light-gray);
-            padding: 25px;
-            border-radius: 12px;
-            animation: fadeInLeft 0.8s ease-out;
-        }
-
-        .finance-features h3 {
-            color: var(--yandex-red);
-            margin-bottom: 20px;
-            font-size: 20px;
-        }
-
-        .features-list {
-            list-style: none;
-        }
-
-        .features-list li {
-            padding: 8px 0;
-            position: relative;
-            padding-left: 25px;
-            transition: transform 0.3s ease;
-        }
-
-        .features-list li:hover {
-            transform: translateX(5px);
-        }
-
-        .features-list li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--yandex-red);
-            font-weight: bold;
-        }
-
-        .comparison-section {
-            background: var(--yandex-light-gray);
-            padding: 25px;
-            border-radius: 12px;
-            animation: fadeInRight 0.8s ease-out;
-        }
-
-        .comparison-section h3 {
-            text-align: center;
-            margin-bottom: 25px;
-            color: var(--yandex-dark-gray);
-            font-size: 18px;
-        }
-
-        .comparison-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            text-align: center;
-        }
-
-        .comparison-item {
-            background: var(--yandex-white);
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .comparison-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
-        }
-
-        .comparison-item.before {
-            border-top: 4px solid #ff6b6b;
-        }
-
-        .comparison-item.after {
-            border-top: 4px solid var(--yandex-red);
-        }
-
-        .comparison-value {
-            font-size: 24px;
-            font-weight: 700;
-            margin: 10px 0;
-            transition: all 0.3s ease;
-        }
-
-        .comparison-item.before .comparison-value {
-            color: #ff6b6b;
-        }
-
-        .comparison-item.after .comparison-value {
-            color: var(--yandex-red);
-        }
-
-        .improvement-badge {
-            background: linear-gradient(135deg, var(--yandex-red), var(--yandex-dark-red));
+        /* Call to Action */
+        .call-to-action {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
             color: white;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-weight: 600;
-            font-size: 14px;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .call-to-action h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .call-to-action p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            line-height: 1.6;
+        }
+
+        .phone-large {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin: 30px 0;
             display: inline-block;
-            margin-top: 10px;
-            animation: pulse 2s infinite;
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 15px 30px;
+            border-radius: 50px;
+            transition: all 0.3s;
+            color: white;
+            text-decoration: none;
         }
 
-        .case-study {
-            background: var(--yandex-light-gray);
-            padding: 30px;
-            border-radius: 15px;
-            margin-top: 30px;
-            animation: fadeInUp 0.8s ease-out 0.2s both;
-            position: relative;
-            overflow: hidden;
+        .phone-large:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+            transform: scale(1.05);
         }
 
-        .case-study::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 4px;
-            height: 100%;
-            background: var(--yandex-red);
+        /* WhatsApp Button */
+        .whatsapp-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            margin-top: 20px;
         }
 
-        .case-study h3 {
-            color: var(--yandex-red);
-            margin-bottom: 15px;
-            font-size: 20px;
+        .whatsapp-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
         }
 
-        .case-study p {
-            color: var(--yandex-dark-gray);
-            line-height: 1.8;
-        }
-
-        /* Футер */
+        /* Footer */
         footer {
-            background: linear-gradient(135deg, var(--yandex-black) 0%, #000 100%);
-            color: var(--yandex-white);
-            padding: 50px 0 25px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        footer::before {
-            content: '';
-            position: absolute;
-            top: -100px;
-            right: -100px;
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, rgba(252, 63, 29, 0.1) 0%, transparent 70%);
-            border-radius: 50%;
+            background: linear-gradient(135deg, var(--dark), var(--primary-dark));
+            color: white;
+            padding: 50px 0 20px;
         }
 
         .footer-content {
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
             position: relative;
-            z-index: 2;
+            padding-bottom: 10px;
         }
 
-        @media (min-width: 768px) {
-            .footer-content {
-                flex-direction: row;
-                justify-content: space-between;
-            }
-        }
-
-        .footer-logo {
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--yandex-white);
-            margin-bottom: 15px;
-        }
-
-        .footer-links {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .footer-links a {
-            color: #ccc;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            position: relative;
-            padding-left: 0;
-        }
-
-        .footer-links a::before {
-            content: '›';
+        .footer-section h3::after {
+            content: '';
             position: absolute;
-            left: -15px;
-            opacity: 0;
-            transition: all 0.3s ease;
-        }
-
-        .footer-links a:hover {
-            color: var(--yandex-white);
-            padding-left: 15px;
-        }
-
-        .footer-links a:hover::before {
-            opacity: 1;
+            bottom: 0;
             left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--secondary);
+        }
+
+        .footer-section p {
+            line-height: 1.6;
+            color: #ddd;
         }
 
         .footer-bottom {
-            margin-top: 40px;
-            padding-top: 25px;
-            border-top: 1px solid #444;
             text-align: center;
-            color: #999;
-            font-size: 14px;
-            position: relative;
-            z-index: 2;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #ddd;
+            font-size: 0.9rem;
         }
 
-        /* Адаптивность для мобильных */
-        @media (max-width: 767px) {
-            .hero {
-                padding: 120px 0 50px;
-            }
-            
-            .hero h1 {
-                font-size: 26px;
-            }
-            
-            .hero p {
-                font-size: 16px;
-            }
-            
-            .section-title {
-                font-size: 24px;
-            }
-            
-            .calculator-container {
-                padding: 25px 20px;
-            }
-            
-            .feature-card, .result-card {
-                padding: 25px 20px;
-            }
-            
-            .btn {
-                padding: 14px 28px;
-            }
-            
-            .results-header {
-                grid-template-columns: 1fr;
-                gap: 25px;
-            }
-            
-            .comparison-grid {
-                grid-template-columns: 1fr;
+        /* Floating Animation */
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0% { transform: translate(0, 0px); }
+            50% { transform: translate(0, -15px); }
+            100% { transform: translate(0, 0px); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
                 gap: 15px;
             }
-            
-            .industry-tabs {
-                gap: 8px;
+
+            nav ul {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero {
+                padding: 100px 0 60px;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .phone-large {
+                font-size: 1.8rem;
+                padding: 12px 20px;
             }
             
-            .industry-tab {
-                padding: 12px 16px;
-                font-size: 14px;
-                min-width: 120px;
+            .services-grid {
+                grid-template-columns: 1fr;
             }
-            
-            .results-content {
-                padding: 25px 20px;
+
+            .service-card {
+                margin: 0 10px;
             }
-            
-            .finance-features,
-            .comparison-section {
-                padding: 20px;
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .call-to-action h2 {
+                font-size: 2rem;
+            }
+
+            .call-to-action p {
+                font-size: 1.1rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .footer-section h3::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .phone-number {
+                font-size: 1rem;
+                padding: 6px 12px;
+            }
+
+            .phone-large {
+                font-size: 1.5rem;
+            }
+
+            .cta-button, .whatsapp-button {
+                padding: 12px 24px;
+                font-size: 1rem;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Шапка -->
-    <header id="header">
+    <!-- Top Bar с номером телефона -->
+    <div class="top-bar">
+        <div class="container top-bar-container">
+            <a href="https://wa.me/77075545930" class="phone-number" target="_blank">
+                <i class="fas fa-phone-alt"></i>
+                <span>+7 707 554 59 30</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
         <div class="container header-container">
-            <a href="#" class="logo">AI-UP</a>
-            <a href="tel:+78001234567" class="phone-number">+7 (800) 123-45-67</a>
+            <div class="logo">
+                <div class="logo-icon">🔑</div>
+                <span>Ключи на заказ</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#services">Услуги</a></li>
+                    <li><a href="#services">Цены</a></li>
+                    <li><a href="#contact">Контакты</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
 
-    <!-- Герой секция -->
+    <!-- Hero Section -->
     <section class="hero">
         <div class="container hero-content">
-            <h1>Комплексный маркетинг для вашего бизнеса</h1>
-            <p>Мы помогаем бизнесу увеличивать продажи с помощью современных digital-инструментов и глубокой аналитики.</p>
-            <a href="#calculator" class="btn animate-pulse">Рассчитать стоимость</a>
+            <h1>Профессиональное изготовление ключей</h1>
+            <p>Изготовим ключи от старых и новых домофонов, ворот и любых других замков. Качественно, быстро и недорого!</p>
+            <a href="#contact" class="cta-button">Позвонить сейчас</a>
+            <a href="https://wa.me/77075545930" class="whatsapp-button" target="_blank">
+                <i class="fab fa-whatsapp"></i> Написать в WhatsApp
+            </a>
         </div>
     </section>
 
-    <!-- Преимущества -->
-    <section class="features">
+    <!-- Services Section -->
+    <section class="services" id="services">
         <div class="container">
-            <h2 class="section-title">Почему выбирают нас</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-chart-line"></i>
+            <h2 class="section-title">Наши услуги и цены</h2>
+            <div class="services-grid">
+                <div class="service-card floating" style="animation-delay: 0.2s;">
+                    <div class="service-icon"><i class="fas fa-home"></i></div>
+                    <div class="service-content">
+                        <h3>Ключи от домофонов</h3>
+                        <p>Изготовление ключей от старых и новых моделей домофонов любой сложности. Работаем с любыми производителями и системами.</p>
+                        <div class="price">1000 тг</div>
+                        <p>Быстрое изготовление с гарантией качества</p>
                     </div>
-                    <h3>Глубокая аналитика</h3>
-                    <p>Мы анализируем вашу нишу, конкурентов и целевую аудиторию для создания эффективной стратегии.</p>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-bullseye"></i>
+                <div class="service-card floating" style="animation-delay: 0.4s;">
+                    <div class="service-icon"><i class="fas fa-door-closed"></i></div>
+                    <div class="service-content">
+                        <h3>Ключи от ворот</h3>
+                        <p>Профессиональное изготовление ключей для автоматических и механических ворот любой сложности.</p>
+                        <div class="price">2000 тг</div>
+                        <p>Надежные ключи с длительным сроком службы</p>
                     </div>
-                    <h3>Точечное таргетирование</h3>
-                    <p>Настраиваем рекламу так, чтобы она показывалась именно вашей целевой аудитории.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-cogs"></i>
-                    </div>
-                    <h3>Автоматизация процессов</h3>
-                    <p>Используем современные инструменты для автоматизации рутинных задач.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-rocket"></i>
-                    </div>
-                    <h3>Быстрый запуск</h3>
-                    <p>Запускаем рекламные кампании в кратчайшие сроки без потери качества.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Калькулятор -->
-    <section class="calculator" id="calculator">
+    <!-- Call to Action -->
+    <section class="call-to-action" id="contact">
         <div class="container">
-            <h2 class="section-title">Калькулятор идентификации</h2>
-            <div class="calculator-container">
-                <h3 class="calculator-title">Рассчитайте стоимость услуг</h3>
-                <form class="calculator-form">
-                    <div class="form-group">
-                        <label for="business-type">Тип бизнеса</label>
-                        <select id="business-type">
-                            <option value="1">Интернет-магазин</option>
-                            <option value="2">Сфера услуг</option>
-                            <option value="3">Производство</option>
-                            <option value="4">Недвижимость</option>
-                            <option value="5">Другое</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="budget">Ежемесячный бюджет на рекламу (руб.)</label>
-                        <input type="range" id="budget" min="10000" max="500000" step="10000" value="100000">
-                        <div id="budget-value">100 000 руб.</div>
-                    </div>
-                    <div class="form-group">
-                        <label for="period">Период сотрудничества</label>
-                        <select id="period">
-                            <option value="1">1 месяц</option>
-                            <option value="3" selected>3 месяца</option>
-                            <option value="6">6 месяцев</option>
-                            <option value="12">12 месяцев</option>
-                        </select>
-                    </div>
-                    <button type="button" class="btn" id="calculate-btn">Рассчитать</button>
-                </form>
-                <div class="calculator-result" id="calculator-result">
-                    <p>Примерная стоимость услуг:</p>
-                    <div class="result-value" id="result-value">0 руб.</div>
-                    <p>Точную стоимость уточнит наш менеджер после консультации</p>
-                </div>
-            </div>
+            <h2>Свяжитесь с нами прямо сейчас!</h2>
+            <p>Изготовим нужный ключ быстро и качественно. Просто напишите или позвоните нам, и мы поможем решить вашу проблему с замками и ключами.</p>
+            <a href="https://wa.me/77075545930" class="phone-large" target="_blank">
+                <i class="fas fa-phone-alt"></i> +7 707 554 59 30
+            </a>
+            <br>
+            <a href="https://wa.me/77075545930" class="whatsapp-button" target="_blank">
+                <i class="fab fa-whatsapp"></i> Написать в WhatsApp
+            </a>
         </div>
     </section>
 
-    <!-- Результаты -->
-    <section class="results" id="results">
-        <div class="container">
-            <h2 class="section-title">Какие результаты вы можете получить</h2>
-            
-            <div class="industry-tabs">
-                <div class="industry-tab active" data-industry="construction">Строительство</div>
-                <div class="industry-tab" data-industry="realestate">Недвижимость</div>
-                <div class="industry-tab" data-industry="repair">Ремонт квартир</div>
-            </div>
-
-            <div class="results-content animate-fade-in-up">
-                <div class="results-header">
-                    <div class="finance-features">
-                        <h3>Финансы</h3>
-                        <ul class="features-list">
-                            <li>Удобный формат</li>
-                            <li>Анализ базы</li>
-                            <li>Автоматизация отчетности</li>
-                            <li>Контроль расходов</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="comparison-section">
-                        <h3>1.2 или P Ваше</h3>
-                        <div class="comparison-grid">
-                            <div class="comparison-item before">
-                                <div>Бюджет</div>
-                                <div class="comparison-value">5 150</div>
-                                <div>Лиды: 700 ₽</div>
-                            </div>
-                            <div class="comparison-item after">
-                                <div>Бюджет</div>
-                                <div class="comparison-value">72%</div>
-                                <div>Лиды: 400 ₽</div>
-                                <div class="improvement-badge">Эффективность +72%</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="case-study">
-                    <h3>Кейс: Юридическая компания</h3>
-                    <p>Юридическая компания использовала SEO и публикации на специализированных сайтах для привлечения клиентов. Стоимость лида достигала 2 500 рублей, что делало расходы на привлечение клиентов чрезмерными. С A+UP они смогли сократить стоимость до 400 рублей за лид, получая качественные заявки. Это позволило компании работать с большим количеством клиентов, улучшая экономическую эффективность своих рекламных вложений.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Футер -->
+    <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-content">
-                <div class="footer-info">
-                    <div class="footer-logo">AI-UP</div>
-                    <p>Комплексный маркетинг для вашего бизнеса</p>
+                <div class="footer-section">
+                    <h3>О нас</h3>
+                    <p>Профессиональные услуги по изготовлению ключей всех типов. Работаем с современным оборудованием, гарантируем качество и быстрые сроки выполнения заказов.</p>
                 </div>
-                <div class="footer-links">
-                    <a href="#">Услуги</a>
-                    <a href="#">Кейсы</a>
-                    <a href="#">О нас</a>
-                    <a href="#">Контакты</a>
-                </div>
-                <div class="footer-links">
-                    <a href="tel:+78001234567">+7 (800) 123-45-67</a>
-                    <a href="mailto:info@ai-up.ru">info@ai-up.ru</a>
+                <div class="footer-section">
+                    <h3>Контакты</h3>
+                    <p><i class="fas fa-phone"></i> <a href="https://wa.me/77075545930" style="color: #ddd; text-decoration: none;" target="_blank">+7 707 554 59 30</a></p>
+                    <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/77075545930" style="color: #ddd; text-decoration: none;" target="_blank">Написать в WhatsApp</a></p>
+                    <p><i class="fas fa-map-marker-alt"></i> г. Ваш город, ул. Ваша улица</p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>© 2023 AI-UP. Все права защищены.</p>
+                <p>&copy; 2023 Ключи на заказ. Все права защищены.</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Анимация появления элементов при скролле
-        function animateOnScroll() {
-            const elements = document.querySelectorAll('.feature-card, .result-card, .calculator-container');
-            
-            elements.forEach(element => {
-                const elementTop = element.getBoundingClientRect().top;
-                const elementVisible = 150;
-                
-                if (elementTop < window.innerHeight - elementVisible) {
-                    element.classList.add('visible');
-                }
-            });
-        }
-
-        // Параллакс эффект для шапки
-        function handleHeaderScroll() {
-            const header = document.getElementById('header');
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        }
-
-        // Калькулятор
-        function initCalculator() {
-            const budgetSlider = document.getElementById('budget');
-            const budgetValue = document.getElementById('budget-value');
-            const calculateBtn = document.getElementById('calculate-btn');
-            const calculatorResult = document.getElementById('calculator-result');
-            const resultValue = document.getElementById('result-value');
-            
-            // Анимация слайдера
-            budgetSlider.addEventListener('input', function() {
-                const value = parseInt(this.value).toLocaleString('ru-RU');
-                budgetValue.textContent = `${value} руб.`;
-                budgetValue.style.transform = 'scale(1.1)';
-                setTimeout(() => {
-                    budgetValue.style.transform = 'scale(1)';
-                }, 150);
-            });
-            
-            // Расчет стоимости с анимацией
-            calculateBtn.addEventListener('click', function() {
-                // Анимация кнопки
-                this.style.transform = 'scale(0.95)';
-                setTimeout(() => {
-                    this.style.transform = '';
-                }, 150);
-
-                const businessType = document.getElementById('business-type').value;
-                const budget = parseInt(budgetSlider.value);
-                const period = document.getElementById('period').value;
-                
-                // Простая формула расчета (пример)
-                let baseCost = budget * 0.15; // 15% от бюджета
-                
-                // Модификаторы
-                if (businessType === '2' || businessType === '4') {
-                    baseCost *= 1.2; // +20% для сферы услуг и недвижимости
-                }
-                
-                if (period === '1') {
-                    baseCost *= 1.3; // +30% за короткий период
-                } else if (period === '12') {
-                    baseCost *= 0.8; // -20% за длительный период
-                }
-                
-                // Округление
-                const finalCost = Math.round(baseCost / 1000) * 1000;
-                
-                // Анимация появления результата
-                setTimeout(() => {
-                    resultValue.textContent = `${finalCost.toLocaleString('ru-RU')} руб.`;
-                    calculatorResult.classList.add('show');
-                    
-                    // Прокрутка к результату
-                    calculatorResult.scrollIntoView({ 
-                        behavior: 'smooth', 
-                        block: 'center' 
-                    });
-                }, 300);
-            });
-        }
-
-        // Табы для переключения между отраслями
-        function initIndustryTabs() {
-            const tabs = document.querySelectorAll('.industry-tab');
-            const resultsContent = document.querySelector('.results-content');
-            
-            tabs.forEach(tab => {
-                // Используем click для десктопа и touchstart для мобильных
-                tab.addEventListener('click', handleTabClick);
-                tab.addEventListener('touchstart', handleTabClick, { passive: true });
-            });
-            
-            function handleTabClick(e) {
-                // Предотвращаем двойное срабатывание
-                e.preventDefault();
-                e.stopPropagation();
-                
-                // Убираем активный класс у всех табов
-                tabs.forEach(t => t.classList.remove('active'));
-                // Добавляем активный класс текущему табу
-                this.classList.add('active');
-                
-                // Анимация переключения контента
-                resultsContent.style.opacity = '0';
-                resultsContent.style.transform = 'translateY(20px)';
-                
-                setTimeout(() => {
-                    // Здесь можно загрузить разный контент для разных отраслей
-                    updateContent(this.dataset.industry);
-                    
-                    resultsContent.style.opacity = '1';
-                    resultsContent.style.transform = 'translateY(0)';
-                }, 300);
-            }
-            
-            function updateContent(industry) {
-                // В реальном проекте здесь будет загрузка разного контента
-                console.log('Загружаем контент для:', industry);
-                
-                // Пример изменения заголовка кейса в зависимости от отрасли
-                const caseTitle = document.querySelector('.case-study h3');
-                const industries = {
-                    construction: 'Кейс: Строительная компания',
-                    realestate: 'Кейс: Агентство недвижимости', 
-                    repair: 'Кейс: Компания по ремонту квартир'
-                };
-                
-                if (industries[industry]) {
-                    caseTitle.textContent = industries[industry];
-                }
-            }
-        }
-
-        // Инициализация при загрузке
+        // Простая анимация появления элементов при скролле
         document.addEventListener('DOMContentLoaded', function() {
-            // Запуск анимаций
-            animateOnScroll();
-            initCalculator();
-            initIndustryTabs();
+            const animatedElements = document.querySelectorAll('.service-card, .section-title, .hero-content');
             
-            // Обработчики событий
-            window.addEventListener('scroll', () => {
-                animateOnScroll();
-                handleHeaderScroll();
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            animatedElements.forEach(el => {
+                el.style.opacity = 0;
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(el);
             });
-            
-            // Инициализация начального состояния
-            handleHeaderScroll();
-            
-            // Показываем калькулятор при загрузке
-            const calculatorContainer = document.querySelector('.calculator-container');
-            calculatorContainer.classList.add('visible');
-        });
 
-        // Дополнительные улучшения для мобильных устройств
-        document.addEventListener('touchstart', function() {}, { passive: true });
+            // Плавная прокрутка для якорных ссылок
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        });
     </script>
 </body>
-    </html>
+</html>
