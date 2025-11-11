@@ -1,16 +1,15 @@
+# Файл robots.txt для сайта по изготовлению ключей в Караганде
+
+# 1. Секция для всех поисковых роботов (Google, Yandex, и другие)
 User-agent: *
-Allow: /
-Disallow: /admin/
-Disallow: /private/
+# Разрешить индексацию всего сайта
+Disallow:
 
-Sitemap: https://kvm.keyshl.kesug.com/sitemap.xml
+# 2. Указать путь к файлу Sitemap
+# ЭТО КРИТИЧЕСКИ ВАЖНО для устранения ошибки "Нет используемых роботом файлов Sitemap"
+Sitemap: https://keyshl.kesug.com/sitemap.xml
 
-# Основные поисковые системы
-User-agent: Googlebot
-Allow: /
-
+# 3. Дополнительные настройки для Яндекса (частота сканирования)
 User-agent: Yandex
-Allow: /
-
-User-agent: Bingbot
-Allow: /
+Crawl-delay: 3 # Задержка в 3 секунды между запросами (чтобы не перегружать хостинг)
+Host: keyshl.kesug.com
