@@ -160,17 +160,62 @@
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, rgba(106, 13, 173, 0.9), rgba(75, 0, 130, 0.9)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%236a0dad"/><path d="M30,30 L70,30 L70,70 L30,70 Z" fill="none" stroke="%23da70d6" stroke-width="2"/><circle cx="50" cy="50" r="20" fill="none" stroke="%23da70d6" stroke-width="2"/></svg>');
-            background-size: cover;
-            color: white;
-            padding: 120px 0 80px;
-            text-align: center;
             position: relative;
+            height: 100vh;
+            min-height: 600px;
+            overflow: hidden;
+            color: white;
+            text-align: center;
+        }
+
+        .carousel {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .carousel-slides {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .carousel-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .carousel-slide.active {
+            opacity: 1;
+        }
+
+        .carousel-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(106, 13, 173, 0.7), rgba(75, 0, 130, 0.7));
+            z-index: 2;
         }
 
         .hero-content {
+            position: relative;
+            z-index: 3;
             max-width: 800px;
             margin: 0 auto;
+            padding: 120px 20px 80px;
             animation: fadeInUp 1s ease-out;
         }
 
@@ -214,6 +259,50 @@
         .cta-button:hover {
             transform: translateY(-3px);
             box-shadow: 0 6px 20px rgba(218, 112, 214, 0.6);
+        }
+
+        .carousel-controls {
+            position: absolute;
+            bottom: 30px;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 4;
+            gap: 20px;
+        }
+
+        .carousel-dots {
+            display: flex;
+            gap: 10px;
+        }
+
+        .carousel-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .carousel-dot.active {
+            background-color: white;
+            transform: scale(1.2);
+        }
+
+        .carousel-arrow {
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            opacity: 0.7;
+        }
+
+        .carousel-arrow:hover {
+            opacity: 1;
+            transform: scale(1.2);
         }
 
         /* Services Section */
@@ -504,6 +593,8 @@
 
             .hero {
                 padding: 100px 0 60px;
+                height: auto;
+                min-height: 500px;
             }
 
             .hero h1 {
@@ -599,13 +690,34 @@
     </header>
 
     <section class="hero">
-        <div class="container hero-content">
+        <div class="carousel">
+            <div class="carousel-slides">
+                <div class="carousel-slide active" style="background-image: url('https://images.unsplash.com/photo-1565538810643-b5bdb714032a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');"></div>
+                <div class="carousel-slide" style="background-image: url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2058&q=80');"></div>
+                <div class="carousel-slide" style="background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');"></div>
+                <div class="carousel-slide" style="background-image: url('https://images.unsplash.com/photo-1600585154340-6f8c3c5f14c0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');"></div>
+            </div>
+            <div class="carousel-overlay"></div>
+        </div>
+        
+        <div class="hero-content">
             <h1>Профессиональное изготовление ключей в Караганде</h1>
             <p>Ключи от домофонов, воротные пульты, домофонные ключи Киев, Метаком, Цифрал. Работаем со всеми системами и производителями! Качественно, быстро и недорого.</p>
             <a href="tel:+77075545930" class="cta-button">📞 Позвонить сейчас</a>
             <a href="https://wa.me/77075545930" class="whatsapp-button" target="_blank">
                 <i class="fab fa-whatsapp"></i> Написать в WhatsApp
             </a>
+        </div>
+        
+        <div class="carousel-controls">
+            <div class="carousel-arrow prev">❮</div>
+            <div class="carousel-dots">
+                <div class="carousel-dot active" data-index="0"></div>
+                <div class="carousel-dot" data-index="1"></div>
+                <div class="carousel-dot" data-index="2"></div>
+                <div class="carousel-dot" data-index="3"></div>
+            </div>
+            <div class="carousel-arrow next">❯</div>
         </div>
     </section>
 
@@ -731,8 +843,90 @@
     </footer>
 
     <script>
-        // Анимация появления элементов при скролле
+        // Карусель фотографий
         document.addEventListener('DOMContentLoaded', function() {
+            const slides = document.querySelectorAll('.carousel-slide');
+            const dots = document.querySelectorAll('.carousel-dot');
+            const prevButton = document.querySelector('.carousel-arrow.prev');
+            const nextButton = document.querySelector('.carousel-arrow.next');
+            let currentSlide = 0;
+            let slideInterval;
+
+            // Функция для показа слайда
+            function showSlide(index) {
+                // Скрыть все слайды
+                slides.forEach(slide => {
+                    slide.classList.remove('active');
+                });
+                
+                // Убрать активный класс со всех точек
+                dots.forEach(dot => {
+                    dot.classList.remove('active');
+                });
+                
+                // Показать выбранный слайд
+                slides[index].classList.add('active');
+                
+                // Активировать соответствующую точку
+                dots[index].classList.add('active');
+                
+                currentSlide = index;
+            }
+
+            // Функция для следующего слайда
+            function nextSlide() {
+                let nextIndex = (currentSlide + 1) % slides.length;
+                showSlide(nextIndex);
+            }
+
+            // Функция для предыдущего слайда
+            function prevSlide() {
+                let prevIndex = (currentSlide - 1 + slides.length) % slides.length;
+                showSlide(prevIndex);
+            }
+
+            // Автоматическая смена слайдов
+            function startSlideShow() {
+                slideInterval = setInterval(nextSlide, 5000); // Менять каждые 5 секунд
+            }
+
+            // Остановить автоматическую смену
+            function stopSlideShow() {
+                clearInterval(slideInterval);
+            }
+
+            // Обработчики событий для кнопок
+            nextButton.addEventListener('click', function() {
+                stopSlideShow();
+                nextSlide();
+                startSlideShow();
+            });
+
+            prevButton.addEventListener('click', function() {
+                stopSlideShow();
+                prevSlide();
+                startSlideShow();
+            });
+
+            // Обработчики событий для точек
+            dots.forEach(dot => {
+                dot.addEventListener('click', function() {
+                    stopSlideShow();
+                    let index = parseInt(this.getAttribute('data-index'));
+                    showSlide(index);
+                    startSlideShow();
+                });
+            });
+
+            // Остановить автоматическую смену при наведении на карусель
+            const carousel = document.querySelector('.carousel');
+            carousel.addEventListener('mouseenter', stopSlideShow);
+            carousel.addEventListener('mouseleave', startSlideShow);
+
+            // Запустить автоматическую смену слайдов
+            startSlideShow();
+
+            // Анимация появления элементов при скролле
             const animatedElements = document.querySelectorAll('.service-card, .section-title, .hero-content, .keyword-item');
             
             const observer = new IntersectionObserver((entries) => {
